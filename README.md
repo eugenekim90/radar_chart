@@ -65,7 +65,9 @@ if __name__ == "__main__":
 
 Running the above example generates this radar chart visualization:
 
-![Customer Segmentation Radar Chart](radar_chart.png)
+![Customer Segmentation Radar Chart](https://raw.githubusercontent.com/eugenekim90/radar_chart/main/radar_chart.png)
+
+*If the image doesn't display above, you can [view it directly here](https://github.com/eugenekim90/radar_chart/blob/main/radar_chart.png)*
 
 This example:
 - Loads customer data with 8,950 customers across 9 clusters
