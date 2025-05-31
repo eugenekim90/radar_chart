@@ -30,6 +30,50 @@ plt.show()
 
 ![radar_chart](./radar_chart.png)
 
+## Feature Selection Options
+
+### Option 1: Specify Exact Features (Recommended)
+```python
+# Use specific columns you want to visualize
+selected_features = ['BALANCE', 'PURCHASES', 'CASH_ADVANCE', 'CREDIT_LIMIT', 'PAYMENTS', 'TENURE']
+
+radar.create_cluster_radar_grid(
+    data=df,
+    features=selected_features,  # Specify which columns to use
+    # ... other parameters
+)
+```
+
+### Option 2: Auto-select with Limit
+```python
+# Let the system auto-detect features but limit the number
+radar.create_cluster_radar_grid(
+    data=df,
+    features=None,        # Auto-detect all numeric features
+    max_features=6,       # Limit to first 6 features
+    # ... other parameters
+)
+```
+
+### Option 3: Use All Available Features
+```python
+# Use all numeric features (not recommended for many features)
+radar.create_cluster_radar_grid(
+    data=df,
+    features=None,        # Auto-detect all numeric features
+    max_features=20,      # Set high limit or remove parameter
+    # ... other parameters
+)
+```
+
+## Key Parameters
+
+- **`features`**: List of column names to use. If `None`, auto-detects numeric columns
+- **`max_features`**: Maximum number of features to display (used when `features=None`)
+- **`id_cols`**: List of ID columns to exclude (e.g., `['CUST_ID', 'user_id']`)
+- **`cluster_col`**: Name of the cluster column (for raw data)
+- **`is_aggregated`**: `True` if data is pre-aggregated, `False` if raw data
+
 ## Installation
 
 ```bash
@@ -46,6 +90,7 @@ python run_example.py
 ## Features
 
 - **Flexible Data Input**: Works with both raw data (with cluster labels) and pre-aggregated data
+- **Column Selection**: Choose specific columns or auto-detect with limits
 - **Automatic Processing**: Handles data aggregation, normalization, and feature selection automatically
 - **Multiple Chart Types**: Single radar, comparison radar, grid layout, and advanced radar with special features
 - **Extensive Customization**: Colors, styles, normalization methods, aggregation functions, and more
